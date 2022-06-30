@@ -105,7 +105,7 @@ class Form extends React.Component {
               onChange={ onInputChange }
               name="raridade"
             >
-              <option>normal</option>
+              <option name={ hasTrunfo }>normal</option>
               <option>raro</option>
               <option>muito raro</option>
             </select>
@@ -148,7 +148,6 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
-  validateButton: PropTypes.func.isRequired,
 };
 
 export default Form;
