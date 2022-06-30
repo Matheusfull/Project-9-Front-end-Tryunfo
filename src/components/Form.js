@@ -105,7 +105,7 @@ class Form extends React.Component {
               onChange={ onInputChange }
               name="raridade"
             >
-              <option name={ hasTrunfo }>normal</option>
+              <option>normal</option>
               <option>raro</option>
               <option>muito raro</option>
             </select>

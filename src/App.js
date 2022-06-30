@@ -12,10 +12,54 @@ class App extends React.Component {
       Attr02: '',
       Attr03: '',
       image: '',
-      raridade: '',
+      raridade: 'normal',
       trunfo: false,
+      cartas: [],
       /*  button: 'disabled', */
     };
+  }
+
+  onSaveButtonClick = (event) => {
+    event.preventDefault();
+    const { name,
+      descricao,
+      Attr01,
+      Attr02,
+      Attr03,
+      image,
+      raridade,
+      trunfo } = this.state;
+    /* this.setState({
+      cartas: {
+        name,
+        descricao,
+        Attr01,
+        Attr02,
+        Attr03,
+        image,
+        raridade,
+        trunfo,
+      },
+    }); */
+    console.log(this.state);
+    this.setState((prevState) => ({
+      name: '',
+      descricao: '',
+      Attr01: '0',
+      Attr02: '0',
+      Attr03: '0',
+      image: '',
+      raridade: 'normal',
+      trunfo: false,
+      cartas: [...prevState.cartas, { name,
+        descricao,
+        Attr01,
+        Attr02,
+        Attr03,
+        image,
+        raridade,
+        trunfo }],
+    }));
   }
 
   handle = ({ target }) => {
@@ -28,20 +72,20 @@ class App extends React.Component {
 
   isSaveButtonDisabled = () => {
     // event.preventDefault();
-    console.log('oioi');
+    // console.log('oioi');
     const number = 210;
     const number2 = 90;
     const number3 = 0;
     const { name, descricao, image, raridade, Attr03, Attr02, Attr01 } = this.state;
     if (name === '' || descricao === '' || image === '' || raridade === '') {
-      console.log('há algum nome');
+      // console.log('há algum nome');
       /* this.setState({
         button: '',
       }); */
       return true;
     }
     if (Number(Attr01) + Number(Attr02) + Number(Attr03) > number) {
-      console.log('menor do que 210');
+      // console.log('menor do que 210');
       return true;
     }
     if (Number(Attr01) > number2 || Number(Attr02) > number2
@@ -80,6 +124,7 @@ class App extends React.Component {
           onInputChange={ this.handle }
           /* isSaveButtonDisabled={ button } */
           isSaveButtonDisabled={ this.isSaveButtonDisabled() }
+          onSaveButtonClick={ this.onSaveButtonClick }
         />
         <Card
           cardName={ name }
