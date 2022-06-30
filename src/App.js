@@ -14,6 +14,7 @@ class App extends React.Component {
       image: '',
       raridade: '',
       trunfo: false,
+      /*  button: 'disabled', */
     };
   }
 
@@ -23,6 +24,36 @@ class App extends React.Component {
     this.setState({
       [name]: value,
     });
+  }
+
+  isSaveButtonDisabled = () => {
+    // event.preventDefault();
+    console.log('oioi');
+    const number = 210;
+    const number2 = 90;
+    const number3 = 0;
+    const { name, descricao, image, raridade, Attr03, Attr02, Attr01 } = this.state;
+    if (name === '' || descricao === '' || image === '' || raridade === '') {
+      console.log('há algum nome');
+      /* this.setState({
+        button: '',
+      }); */
+      return true;
+    }
+    if (Number(Attr01) + Number(Attr02) + Number(Attr03) > number) {
+      console.log('menor do que 210');
+      return true;
+    }
+    if (Number(Attr01) > number2 || Number(Attr02) > number2
+      || Number(Attr03) > number2) {
+      // console.log("numer");
+      return true;
+    }
+    if (Number(Attr01) < number3 || Number(Attr02) < number3
+      || Number(Attr03) < number3) {
+      return true;
+    }
+    return false;
   }
 
   render() {
@@ -47,6 +78,8 @@ class App extends React.Component {
           cardRare={ raridade }
           cardTrunfo={ trunfo }
           onInputChange={ this.handle }
+          /* isSaveButtonDisabled={ button } */
+          isSaveButtonDisabled={ this.isSaveButtonDisabled() }
         />
         <Card
           cardName={ name }

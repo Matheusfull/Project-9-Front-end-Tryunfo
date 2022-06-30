@@ -18,7 +18,9 @@ class Form extends React.Component {
       onSaveButtonClick,
     } = this.props;
     /*  const { onInputChange } = this.props; */
-    /*  const { state :{name, descricao, Attr1, Attr2, Attr3, image, raridade, trunfo } } = this.props; */
+    /*  const { state :{name, descricao, Attr1, Attr2, Attr3, image, raridade, trunfo } } = this.props;
+    O estado não está sendo 'importado desta forma, mas sim, atrvés das props. Essa sacada eu demorei para pegar, tive que ver umas PRs'
+    */
     return (
       <div>
         <form>
@@ -48,6 +50,8 @@ class Form extends React.Component {
             Attr01:
             <input
               type="number"
+              max={ 90 }
+              min={ 0 }
               data-testid="attr1-input"
               id="Attr01"
               value={ cardAttr1 }
@@ -59,6 +63,8 @@ class Form extends React.Component {
             Attr02:
             <input
               type="number"
+              max={ 90 }
+              min={ 0 }
               data-testid="attr2-input"
               id="Attr02"
               value={ cardAttr2 }
@@ -70,6 +76,8 @@ class Form extends React.Component {
             Attr03:
             <input
               type="number"
+              max={ 90 }
+              min={ 0 }
               data-testid="attr3-input"
               id="Attr03"
               value={ cardAttr3 }
@@ -112,17 +120,15 @@ class Form extends React.Component {
               name="trunfo"
             />
           </label>
-          <label htmlFor="button">
-            Enviar
-            <input
-              value={ hasTrunfo }
-              type="submit"
-              id="button"
-              data-testid="save-button"
-              disabled={ isSaveButtonDisabled }
-              onClick={ onSaveButtonClick }
-            />
-          </label>
+          <button
+            type="submit"
+            id="button"
+            data-testid="save-button"
+            disabled={ isSaveButtonDisabled }
+            onClick={ onSaveButtonClick }
+          >
+            Salvar
+          </button>
         </form>
       </div>
     );
@@ -142,6 +148,7 @@ Form.propTypes = {
   isSaveButtonDisabled: PropTypes.bool.isRequired,
   onInputChange: PropTypes.func.isRequired,
   onSaveButtonClick: PropTypes.func.isRequired,
+  validateButton: PropTypes.func.isRequired,
 };
 
 export default Form;
