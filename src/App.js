@@ -15,6 +15,7 @@ class App extends React.Component {
       raridade: 'normal',
       trunfo: false,
       cartas: [],
+      hasTrunfo: false,
       /*  button: 'disabled', */
     };
   }
@@ -29,19 +30,7 @@ class App extends React.Component {
       image,
       raridade,
       trunfo } = this.state;
-    /* this.setState({
-      cartas: {
-        name,
-        descricao,
-        Attr01,
-        Attr02,
-        Attr03,
-        image,
-        raridade,
-        trunfo,
-      },
-    }); */
-    console.log(this.state);
+
     this.setState((prevState) => ({
       name: '',
       descricao: '',
@@ -59,7 +48,7 @@ class App extends React.Component {
         image,
         raridade,
         trunfo }],
-    }));
+    }), () => this.superTrunfo());
   }
 
   handle = ({ target }) => {
@@ -100,45 +89,56 @@ class App extends React.Component {
     return false;
   }
 
-  render() {
-    const { name,
-      descricao,
-      Attr01,
-      Attr02,
-      Attr03,
-      image,
-      raridade,
-      trunfo } = this.state;
-    return (
-      <div>
-        <h1>Tryunfo</h1>
-        <Form
-          cardName={ name }
-          cardDescription={ descricao }
-          cardAttr1={ Attr01 }
-          cardAttr2={ Attr02 }
-          cardAttr3={ Attr03 }
-          cardImage={ image }
-          cardRare={ raridade }
-          cardTrunfo={ trunfo }
-          onInputChange={ this.handle }
-          /* isSaveButtonDisabled={ button } */
-          isSaveButtonDisabled={ this.isSaveButtonDisabled() }
-          onSaveButtonClick={ this.onSaveButtonClick }
-        />
-        <Card
-          cardName={ name }
-          cardDescription={ descricao }
-          cardAttr1={ Attr01 }
-          cardAttr2={ Attr02 }
-          cardAttr3={ Attr03 }
-          cardImage={ image }
-          cardRare={ raridade }
-          cardTrunfo={ trunfo }
-        />
-      </div>
-    );
-  }
+    superTrunfo = () => {
+      const { cartas } = this.state;
+      const verifyCard = cartas.some((card) => card.trunfo === true);
+      this.setState({
+        hasTrunfo: verifyCard,
+      });
+    }
+
+    render() {
+      const { name,
+        descricao,
+        Attr01,
+        Attr02,
+        Attr03,
+        image,
+        raridade,
+        trunfo,
+        hasTrunfo,
+      } = this.state;
+      return (
+        <div>
+          <h1>Tryunfo</h1>
+          <Form
+            cardName={ name }
+            cardDescription={ descricao }
+            cardAttr1={ Attr01 }
+            cardAttr2={ Attr02 }
+            cardAttr3={ Attr03 }
+            cardImage={ image }
+            cardRare={ raridade }
+            cardTrunfo={ trunfo }
+            hasTrunfo={ hasTrunfo }
+            onInputChange={ this.handle }
+            /* isSaveButtonDisabled={ button } */
+            isSaveButtonDisabled={ this.isSaveButtonDisabled() }
+            onSaveButtonClick={ this.onSaveButtonClick }
+          />
+          <Card
+            cardName={ name }
+            cardDescription={ descricao }
+            cardAttr1={ Attr01 }
+            cardAttr2={ Attr02 }
+            cardAttr3={ Attr03 }
+            cardImage={ image }
+            cardRare={ raridade }
+            cardTrunfo={ trunfo }
+          />
+        </div>
+      );
+    }
 }
 
 export default App;
