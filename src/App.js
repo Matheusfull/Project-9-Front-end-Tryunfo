@@ -97,6 +97,20 @@ class App extends React.Component {
       });
     }
 
+    onDeleteButtonClick= (cardName, cardTrunfo) => {
+      console.log(cardName);
+      const { cartas } = this.state;
+      this.setState({
+        cartas: cartas.filter((card) => card.name !== cardName),
+      });
+      // console.log(cartas);
+      if (cardTrunfo) {
+        this.setState({
+          hasTrunfo: false,
+        });
+      }
+    }
+
     render() {
       const { name,
         descricao,
@@ -136,6 +150,7 @@ class App extends React.Component {
             cardImage={ image }
             cardRare={ raridade }
             cardTrunfo={ trunfo }
+            excluir={ false }
           />
           {
             cartas.map((card) => (
@@ -149,6 +164,8 @@ class App extends React.Component {
                 cardImage={ card.image }
                 cardRare={ card.raridade }
                 cardTrunfo={ card.trunfo }
+                excluir
+                onDeleteButtonClick={ this.onDeleteButtonClick }
               />
             ))
           }
@@ -189,4 +206,11 @@ Essa função vai set chamada dentro da função de salvar a carta.
 /*
 Requisito 8 -
 Para renderizar no App e garantir que as cartas serão atualizadas, basta fazer um map com as cartas salvas no componente Card, pois ele é responsável por ter a estrutura para renderizar conforme for passada as props (o nome do bicho, descrição, números...)
+*/
+
+/*
+Requisito 9 -
+1 - Esse botão só aparece nas cartas salvas, então vou fazer uma render condicional
+2 - depois fazer um filter.
+3 - Se a carta for um trunfo, muda o hasTrunfo para falsa a fim de indicar que um trunfo foi excluído.
 */
