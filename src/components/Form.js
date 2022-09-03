@@ -175,3 +175,16 @@ Form.propTypes = {
 };
 
 export default Form;
+
+/*
+Requisito 1 -
+Criação normal de um formulário, porém atenção aos data-testid para os tests
+Processo similar ao exercícios proposto no dia.
+nome, descrição, 3 atributos, image, raridade, trunfo, um btn p salvar.
+*/
+
+/*
+Requisito 2 -
+1 - Cada input vai ter um value para ser exibido na tela
+2 - Um evento para poder controlar o campo de cada input
+*/

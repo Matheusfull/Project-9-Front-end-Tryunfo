@@ -42,3 +42,9 @@ Card.propTypes = {
 };
 
 export default Card;
+
+/*
+Requisito 3 -
+Pega as props, pois estão com os valores dos inputs.
+Renderize-as, com isso será exposto a carta criada.
+*/

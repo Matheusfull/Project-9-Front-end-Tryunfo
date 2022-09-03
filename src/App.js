@@ -158,3 +158,35 @@ class App extends React.Component {
 }
 
 export default App;
+
+/*
+Requisito 4 -
+Agora vamos controlar os estados, com isso o valor dos inputs estarão tanto no formulário quanto no preview do card.
+Para controlar precisamos:
+1 - Fazer a função que ao digitar no formulário, pega esses valores e salvo no estado.
+2 - pega o estado e passa como prop para o Card e Form para que eles possam renderizar a informação.
+*/
+
+/*
+Requisito 5 -
+fazer as 4 condições, normal
+*/
+
+/*
+Requisito 6 -
+1 - pega o estado
+2 - salva-o no array
+3 - zera o estado
+4 - garante que a verificação de ter um supertrunfo só vai ocorrer depois do passo 2 e 3. O setState é assíncrono.
+*/
+
+/*
+Requisito 7 -
+Eu preciso pegar todas as cartas que foram salvas e ver se alguma (some) tem o supertrunfo, caso tenha, vou indicar (através do estado hastrunfo) que há um escolhida. Ou seja, hastrunfo vai ficar true caso tenha trunfo e false caso não tenha.
+Essa função vai set chamada dentro da função de salvar a carta.
+*/
+
+/*
+Requisito 8 -
+Para renderizar no App e garantir que as cartas serão atualizadas, basta fazer um map com as cartas salvas no componente Card, pois ele é responsável por ter a estrutura para renderizar conforme for passada as props (o nome do bicho, descrição, números...)
+*/
