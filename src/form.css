@@ -1,0 +1,73 @@
+.title {
+    text-align: center;
+}
+
+.form {
+    border-radius: 10px;
+    width: 700px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin-left: 170px;
+    border: 1px solid black;
+    background-image: url(../images/fundo2.jpeg);
+    background-repeat: no-repeat;
+    background-position: 90%;
+    background-color: rgb(211, 208, 208);
+}
+
+.form label {
+    margin-top: 20px;
+    margin-left: 10px;
+}
+
+.form label input, textarea {
+    margin-left: 20px;
+    
+}
+
+#name {
+    margin-left: 45px;
+}
+
+#Attr01, #Attr02, #Attr03 {
+    margin-left: 42px;
+}
+
+#image {
+    margin-left: 30px;
+}
+
+#raridade {
+    margin-left: 26px;
+}
+
+#button {
+    width: 50%;
+}
+
+.Box_Card {
+
+    width: 35%;
+    display: flex;
+    justify-content: center;
+    margin-left: 350px;
+}
+
+.Card {
+    text-align: center;
+    border: 1px solid black;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    background-color: rgb(123, 165, 123);
+}
+
+.Card h1 {
+    margin-top: -5px;
+    margin-left: 150px;
+}
+
+.Card h1 {
+    display: inline;
+}

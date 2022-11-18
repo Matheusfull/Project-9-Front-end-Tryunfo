@@ -125,7 +125,7 @@ class App extends React.Component {
       } = this.state;
       return (
         <div>
-          <h1>Tryunfo</h1>
+          <h1 className="title">Tryunfo</h1>
           <Form
             cardName={ name }
             cardDescription={ descricao }

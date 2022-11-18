@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import '../form.css';
 
 class Form extends React.Component {
   render() {
@@ -20,10 +21,11 @@ class Form extends React.Component {
     /*  const { onInputChange } = this.props; */
     /*  const { state :{name, descricao, Attr1, Attr2, Attr3, image, raridade, trunfo } } = this.props;
     O estado não está sendo 'importado desta forma, mas sim, atrvés das props. Essa sacada eu demorei para pegar, tive que ver umas PRs'
+    Hoje com mais experiência vejo que dessa forma nunca iria pegar mesmo porque o estado vem por props, sendo pego por this.props e não this.props.state. Sim, eu estava aprendendo kkkk
     */
     return (
       <div>
-        <form>
+        <form className="form">
           <label htmlFor="name">
             Nome:
             <input
@@ -134,16 +136,21 @@ class Form extends React.Component {
               hasTrunfo ? (
                 <p>Você já tem um Super Trunfo em seu baralho</p>
               ) : (
-                <input
-                  type="checkbox"
-                  id="trunfo"
-                  data-testid="trunfo-input"
-                  checked={ cardTrunfo }
-                  onChange={ onInputChange }
-                  name="trunfo"
-                />)
+                <label htmlFor="checkbox" className="checkbox">
+                  Escolher como Trunfo
+                  <input
+                    type="checkbox"
+                    id="trunfo"
+                    data-testid="trunfo-input"
+                    checked={ cardTrunfo }
+                    onChange={ onInputChange }
+                    name="trunfo"
+                  />
+                </label>
+              )
             }
           </label>
+
           <button
             type="submit"
             id="button"
